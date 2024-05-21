@@ -47,15 +47,6 @@ export default function SideRight(props) {
   return (
     <div id='sideRight' className={className}>
       <InfoCard {...props} />
-            <div className='sticky top-20'>
-        {post && post.toc && post.toc.length > 1 && <Card>
-          <Catalog toc={post.toc} />
-        </Card>}
-
-        {rightAreaSlot}
-        <FaceBookPage/>
-        <Live2D />
-      </div>
       {siteConfig('HEXO_WIDGET_ANALYTICS', null, CONFIG) && <AnalyticsCard {...props} />}
 
       {showCategory && (
@@ -81,7 +72,16 @@ export default function SideRight(props) {
       <Announcement post={notice}/>
 
       {siteConfig('COMMENT_WALINE_SERVER_URL') && siteConfig('COMMENT_WALINE_RECENT') && <HexoRecentComments/>}
+      
+            <div className='sticky top-20'>
+        {post && post.toc && post.toc.length > 1 && <Card>
+          <Catalog toc={post.toc} />
+        </Card>}
 
+        {rightAreaSlot}
+        <FaceBookPage/>
+        <Live2D />
+      </div>
     </div>
   )
 }
